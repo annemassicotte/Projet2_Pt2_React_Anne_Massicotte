@@ -22,10 +22,10 @@ const Category = () => {
 			<h1>{params.name}</h1>
 			<div>
 				{data &&
-					data.meals.map((item) => (
-						<Link to={`/category/${item.strMeal}`} key={item.idMeal}>
-							<img src={item.strMealThumb} alt={item.strMeal} />
-							<p>{item.strMeal}</p>
+					data.meals.map((meal) => (
+						<Link to={`/meal/${meal.idMeal}`} key={meal.idMeal}>
+							<img src={meal.strMealThumb} alt={meal.strMeal} />
+							<p>{meal.strMeal}</p>
 						</Link>
 					))}
 			</div>
