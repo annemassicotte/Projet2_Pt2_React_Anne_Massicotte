@@ -17,9 +17,9 @@ const AllCategories = () => {
 		<>
 			<h1>Categories</h1>
 			<div>
-				{data.categories.map((category) => (
+				{data && data.categories.map((category) => (
 					<Link to={`/category/${category.strCategory}`} key={category.idCategory}>
-						<p>{category.strCategory}</p>{" "}
+						<p>{category.strCategory}</p>
 					</Link>
 				))}
 			</div>
