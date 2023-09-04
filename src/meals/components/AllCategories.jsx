@@ -19,8 +19,8 @@ const AllCategories = () => {
 	return (
 		<Container className="d-flex flex-column justify-content-center container">
 			<Row className="bg-white p-3 rounded-4">
-				<h1 className="mb-4 fw-bold">Categories</h1>
 				<Col className="px-0">
+					<h1 className="mb-4 fw-bold">Categories</h1>
 					<ul>
 						{data &&
 							data.categories.map((category) => (

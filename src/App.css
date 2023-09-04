@@ -1,10 +1,14 @@
 body {
-	background-color:rgb(213, 244, 249) !important;
+	background-color: rgb(213, 244, 249) !important;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
 }
 
 .container {
 	min-height: 100vh;
+}
+
+.container-detailed-meal {
+	max-width: 1000px !important;
 }
 
 a {
@@ -20,6 +24,14 @@ ul {
 	columns: 3;
 }
 
-img {
+img.thumbnail {
 	max-width: 100px;
+}
+
+.container-img{
+	max-width:50%;
+}
+
+.container-img img {
+	width: 100%;
 }

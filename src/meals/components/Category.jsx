@@ -33,7 +33,7 @@ const Category = () => {
 							<img
 								src={meal.strMealThumb}
 								alt={meal.strMeal}
-								className="rounded-circle"
+								className="rounded-circle thumbnail"
 							/>
 							<Link to={`/meal/${meal.idMeal}`}>
 								<p className="fs-4">{meal.strMeal}</p>
