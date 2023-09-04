@@ -2,6 +2,8 @@ import MealService from "../service/MealService";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 const mealService = new MealService();
 
@@ -17,19 +19,29 @@ const Category = () => {
 	if (isError) return <div>Error: {error.message}</div>;
 
 	return (
-		<>
-			<Link to="/">Back to categories</Link>
-			<h1>{params.name}</h1>
-			<div>
+		<Container className="py-5">
+			<Link to="/">
+				<Button variant="dark" className="mb-5">
+					Back to categories
+				</Button>
+			</Link>
+			<h1 className="mb-4 fw-bold">{params.name}</h1>
+			<div className="d-flex flex-column gap-3">
 				{data &&
 					data.meals.map((meal) => (
-						<Link to={`/meal/${meal.idMeal}`} key={meal.idMeal}>
-							<img src={meal.strMealThumb} alt={meal.strMeal} />
-							<p>{meal.strMeal}</p>
-						</Link>
+						<div key={meal.idMeal} className="meal-wrapper hstack gap-3">
+							<img
+								src={meal.strMealThumb}
+								alt={meal.strMeal}
+								className="rounded-circle"
+							/>
+							<Link to={`/meal/${meal.idMeal}`}>
+								<p className="fs-4">{meal.strMeal}</p>
+							</Link>
+						</div>
 					))}
 			</div>
-		</>
+		</Container>
 	);
 };
 
