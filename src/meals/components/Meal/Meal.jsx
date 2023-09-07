@@ -1,12 +1,9 @@
-import MealService from "../service/MealService";
+import MealService from "../../services/MealService";
+import MealDetails from "../MealDetails/MealDetails";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import MealDetails from "./MealDetails";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const mealService = new MealService();
 
@@ -34,15 +31,19 @@ const Meal = () => {
 			</Row>
 
 			{data &&
-				data.meals.map((info) => (
-					<Row key={info.idMeal}>
+				data.meals.map((meal) => (
+					<Row key={meal.idMeal}>
 						<Col>
-							<h1 className="mb-2 fw-bold text-center">{info.strMeal}</h1>
+							<h1 className="mb-2 fw-bold text-center">{meal.strMeal}</h1>
 							<p className="fs-5 mb-5 text-center">
-								Category: {info.strCategory}
+								Category: {meal.strCategory}
 							</p>
 							<div className="mx-auto container-img mb-5">
-								<img src={info.strMealThumb} alt={params.name} className="rounded-4" />
+								<img
+									src={meal.strMealThumb}
+									alt={meal.strMeal}
+									className="rounded-4"
+								/>
 							</div>
 
 							<MealDetails data={data} className="accordion" />

@@ -2,9 +2,9 @@ import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import AllCategories from "./meals/components/AllCategories";
-import Category from "./meals/components/Category";
-import Meal from "./meals/components/Meal";
+import AllCategories from "./meals/components/AllCategories/AllCategories";
+import Category from "./meals/components/Category/Category";
+import Meal from "./meals/components/Meal/Meal";
 
 const client = new QueryClient();
 

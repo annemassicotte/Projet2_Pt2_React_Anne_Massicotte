@@ -1,7 +1,6 @@
-import Accordeon from "../../components/Accordeon";
+import Accordeon from "../../../components/Accordeon/Accordeon";
 
 const MealDetails = ({ data }) => {
-	
 	if (!data) {
 		return null;
 	}
@@ -19,7 +18,7 @@ const MealDetails = ({ data }) => {
 	}
 
 	const filteredIngredientsAndMeasures = ingredientsAndMeasures.filter(Boolean);
-	
+
 	const ingredientList = (
 		<ul>
 			{filteredIngredientsAndMeasures.map((item, index) => (
@@ -27,7 +26,7 @@ const MealDetails = ({ data }) => {
 			))}
 		</ul>
 	);
-	
+
 	const instructions = meal.strInstructions;
 
 	return (
