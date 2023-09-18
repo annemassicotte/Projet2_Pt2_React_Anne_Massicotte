@@ -5,6 +5,7 @@ import { Routes } from "react-router-dom";
 import AllCategories from "./meals/components/AllCategories/AllCategories";
 import Category from "./meals/components/Category/Category";
 import Meal from "./meals/components/Meal/Meal";
+import FavoriteMeals from "./meals/components/Meal/FavoriteMeals";
 
 const client = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/" element={<AllCategories />} />
 				<Route path="/category/:name" element={<Category />} />
 				<Route path="/meal/:id" element={<Meal />} />
+				<Route path="/favorites" element={<FavoriteMeals />} />
 			</Routes>
 		</QueryClientProvider>
 	);

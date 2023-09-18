@@ -3,7 +3,8 @@ import MealDetails from "../MealDetails/MealDetails";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Stack } from "react-bootstrap";
+import FavoriteButton from "../../../favorites/components/FavoriteButton/FavoriteButton";
 
 const mealService = new MealService();
 
@@ -34,10 +35,23 @@ const Meal = () => {
 				data.meals.map((meal) => (
 					<Row key={meal.idMeal}>
 						<Col>
-							<h1 className="mb-2 fw-bold text-center">{meal.strMeal}</h1>
-							<p className="fs-5 mb-5 text-center">
+							<h1 className="mb-3 fw-bold text-center">{meal.strMeal}</h1>
+							<p className="fs-5 mb-3 text-center">
 								Category: {meal.strCategory}
 							</p>
+							<Stack
+								direction="horizontal"
+								gap={3}
+								className="justify-content-center mb-5">
+								<FavoriteButton meal={meal} />
+
+								<Link to="/favorites">
+									<Button variant="dark">
+										Go to all favorites
+									</Button>
+								</Link>
+							</Stack>
+
 							<div className="mx-auto container-img mb-5">
 								<img
 									src={meal.strMealThumb}
