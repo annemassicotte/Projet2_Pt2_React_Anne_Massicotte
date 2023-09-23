@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
-import { favoritesSelector } from "../../../favorites/store/favoritesSelector";
+import { favoritesSelector } from "../../../favorites/store/favoritesSelectors";
 import { Container, Row, Col, Button, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FavoriteButton from "../../../favorites/components/FavoriteButton/FavoriteButton";
 
 const FavoriteMeals = () => {
 	const favorites = useSelector(favoritesSelector);
-	console.log(favorites);
 
 	return (
 		<Container className="py-5">
@@ -24,16 +23,16 @@ const FavoriteMeals = () => {
 					<h1 className="mb-4 fw-bold">List of favorite meals</h1>
 					<div className="d-flex flex-column gap-3">
 						{favorites.map((meal) => (
-							<Stack key={meal} direction="horizontal" gap={3}>
+							<Stack key={meal.idMeal} direction="horizontal" gap={3}>
 								<img
 									src={meal.strMealThumb}
 									alt={meal.strMeal}
 									className="rounded-circle thumbnail"
 								/>
-                                <Link to={`/meal/${meal.idMeal}`}>
-										<p className="fs-4 mb-0">{meal.strMeal}</p>
-									</Link>
-                                <FavoriteButton meal={meal} />
+								<Link to={`/meal/${meal.idMeal}`}>
+									<p className="fs-4 mb-0">{meal.strMeal}</p>
+								</Link>
+								<FavoriteButton meal={meal} />
 							</Stack>
 						))}
 					</div>

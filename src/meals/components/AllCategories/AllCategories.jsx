@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Stack, Button } from "react-bootstrap";
 import CategoriesService from "../../services/CategoriesService";
 
 const categoriesService = new CategoriesService();
@@ -16,7 +16,14 @@ const AllCategories = () => {
 
 	return (
 		<Container className="d-flex flex-column justify-content-center container">
-			<h1 className="fw-bold mb-5">What do you want to eat?</h1>
+			<Row>
+				<Stack direction="horizontal" gap={3} className="mb-5">
+					<h1 className="fw-bold">What do you want to eat?</h1>
+					<Link to="/favorites">
+						<Button variant="dark">Browse your favorite meals</Button>
+					</Link>
+				</Stack>
+			</Row>
 			<Row className="bg-white p-3 rounded-4">
 				<Col className="px-0">
 					<h2 className="mb-4 fw-bold">Categories</h2>

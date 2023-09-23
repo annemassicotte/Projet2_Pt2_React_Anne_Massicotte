@@ -1,14 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../store/favoritesSlice";
-import { favoritesSelector } from "../../store/favoritesSelector";
+import { favoritesSelector } from "../../store/favoritesSelectors";
 import { Stack } from "react-bootstrap";
 
 const FavoriteButton = ({ meal }) => {
 	const dispatch = useDispatch();
 
 	const favorites = useSelector(favoritesSelector);
-	const isFavorite = favorites.some((favorite) => favorite.idMeal === meal.idMeal);
+	const isFavorite = favorites.some(
+		(favorite) => favorite.idMeal === meal.idMeal
+	);
+
 	const onClick = () => {
 		if (isFavorite) {
 			return dispatch(removeFavorite(meal));
